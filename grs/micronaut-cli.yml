@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: com.softklass.grs
+testFramework: junit
+sourceLanguage: java
+buildTool: gradle
+features: [ app-name, github-workflow-ci, gitlab-workflow-ci, gradle, http-client, http-poja, java, java-application, json-schema, json-schema-validation, junit, junit-params, junit-platform-suite-engine, management, micrometer, micrometer-prometheus, micronaut-aot, micronaut-build, micronaut-http-validation, openapi, properties, readme, serialization-jackson, shade, slf4j-simple, static-resources, swagger-ui, tracing-opentelemetry-annotations, tracing-opentelemetry-exporter-jaeger, tracing-opentelemetry-exporter-zipkin, tracing-opentelemetry-http, tracing-opentelemetry-jaeger, tracing-opentelemetry-zipkin ]
