@@ -164,4 +164,11 @@
       </profile>
     </annotationProcessing>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="grs" options="-parameters -Amicronaut.processing.incremental=true -Amicronaut.processing.annotations=com.softklass.grs.* -Amicronaut.processing.group=com.softklass.grs -Amicronaut.processing.module=grs" />
+      <module name="grs.main" options="-parameters -Amicronaut.processing.incremental=true -Amicronaut.processing.annotations=com.softklass.grs.* -Amicronaut.processing.group=com.softklass.grs -Amicronaut.processing.module=grs" />
+      <module name="grs.test" options="-parameters -Amicronaut.processing.incremental=true -Amicronaut.processing.annotations=com.softklass.grs.* -Amicronaut.processing.group=com.softklass.grs -Amicronaut.processing.module=grs" />
+    </option>
+  </component>
 </project>
