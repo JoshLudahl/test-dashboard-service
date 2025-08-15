@@ -31,6 +31,8 @@ dependencies {
     testImplementation("io.micronaut.jsonschema:micronaut-json-schema-validation")
     testImplementation("org.junit.jupiter:junit-jupiter-params")
     testImplementation("org.junit.platform:junit-platform-suite-engine")
+    testImplementation("org.mockito:mockito-core:5.12.0")
+    testImplementation("org.mockito:mockito-junit-jupiter:5.12.0")
 }
 
 
@@ -46,7 +48,7 @@ java {
 graalvmNative.toolchainDetection = false
 
 micronaut {
-    runtime("http_poja")
+    runtime("netty")
     testRuntime("junit5")
     processing {
         incremental(true)
