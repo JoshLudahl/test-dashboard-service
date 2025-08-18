@@ -6,13 +6,14 @@ services:
     ports:
       - "8086:8086"
     volumes:
-      - influxdb-data:/var/lib/influxdb
+      - influxdb-data:/var/lib/influxdb2
     environment:
-      - INFLUXDB_DB=telegraf
-      - INFLUXDB_ADMIN_USER=admin
-      - INFLUXDB_ADMIN_PASSWORD=admin_password
-      - INFLUXDB_USER=telegraf
-      - INFLUXDB_USER_PASSWORD=telegraf_password
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=admin
+      - DOCKER_INFLUXDB_INIT_PASSWORD=admin_password
+      - DOCKER_INFLUXDB_INIT_ORG=grs
+      - DOCKER_INFLUXDB_INIT_BUCKET=telegraf
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=q8NBukh9_5BF3_uVzQl717VzRDB4dg9WTqciWnU71ntqzE-P1kks61LIE9CHsukWnxwM6XPoDUUbK18fGq9YvQ==
 
   telegraf:
     image: telegraf:latest
@@ -26,7 +27,9 @@ services:
       - HOST_SYS=/host/sys
       - HOST_ETC=/host/etc
       - INFLUXDB_URL=http://influxdb:8086
-      - INFLUXDB_TOKEN=telegraf_password
+      - INFLUXDB_TOKEN=Xpp109RyUZemfbqmI49Uvf3N5YVCizqbmCXEcj8ABbJajon9IJah2-g2haubzO3WjQRrPMN4OepsiZdsMsUyuQ==
+      - INFLUXDB_ORG=my-org
+      - INFLUXDB_BUCKET=telegraf
     restart: unless-stopped
 
   grafana:
