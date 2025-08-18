@@ -10,6 +10,8 @@ import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Post;
 import io.micronaut.http.annotation.Produces;
+import io.micronaut.scheduling.TaskExecutors;
+import io.micronaut.scheduling.annotation.ExecuteOn;
 import io.micronaut.serde.annotation.Serdeable;
 import jakarta.inject.Inject;
 
@@ -30,6 +32,7 @@ public class ReportController {
     }
 
     @Post(value = "/json", consumes = MediaType.APPLICATION_JSON)
+    @ExecuteOn(TaskExecutors.BLOCKING)  // run this method on a separate thread pool
     public HttpResponse<?> postJson(@Body TestRun run) {
         if (run.getTimestamp() == null) run.setTimestamp(Instant.now());
         if (run.getFramework() == null) run.setFramework("generic");

@@ -98,11 +98,11 @@ If these requests return 200 OK, the app has also written a data point to Influx
 3. Add a data source:
    - Click “Connections” (or the gear icon -> Data sources) -> “Add new data source”.
    - Choose “InfluxDB”.
-   - Query Language: InfluxQL
+   - Query Language: Flux (InfluxDB 2.x)
    - URL: `http://localhost:8086`
-   - Database: `telegraf`
-   - User: `telegraf`
-   - Password: `telegraf_password`
+   - Organization: `my-org` (or whatever you set in docker.env as INFLUXDB_ORG)
+   - Token: use the value of `INFLUXDB_TOKEN` from `docker.env`
+   - Default Bucket: `telegraf`
    - Click “Save & Test” (you should see a success message).
 4. Import the sample dashboard:
    - In Grafana, go to Dashboards -> New -> Import.
@@ -114,10 +114,10 @@ If these requests return 200 OK, the app has also written a data point to Influx
 ## Troubleshooting
 - If `./gradlew run` fails, ensure you have Java 21 installed and on your PATH.
 - If Grafana login fails, make sure the `docker compose up -d` step completed and you’re visiting http://localhost:3000.
-- If “Save & Test” for the Grafana data source fails, confirm InfluxDB is running (http://localhost:8086) and that you used:
-  - Database: `telegraf`
-  - User: `telegraf`
-  - Password: `telegraf_password`
+- If “Save & Test” for the Grafana data source fails, confirm InfluxDB is running (http://localhost:8086) and that you used Flux with:
+  - Organization matching `INFLUXDB_ORG` in docker.env (default `my-org`)
+  - Token equal to `INFLUXDB_TOKEN` in docker.env
+  - Default Bucket `telegraf`
 - To reset the stack, run:
   - `docker compose down -v` (removes volumes), then
   - `docker compose up -d` again.
